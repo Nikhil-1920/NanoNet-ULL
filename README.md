@@ -1,4 +1,3 @@
-```markdown
 # NanoNet-ULL: Ultra-Low Latency Networking Stack
 
 ## Overview
@@ -12,24 +11,24 @@ NanoNet processes incoming market data packets, applies custom application logic
 NanoNet is designed for scenarios requiring rapid packet processing and response generation. Key use cases include:
 
 1. **High-Frequency Trading (HFT)**:
-   - Processes real-time market data feeds (e.g., stock prices) via UDP multicast and generates buy/sell orders based on predefined logic.
-   - Minimizes latency to execute trades before market conditions change, critical for profitability in HFT.
-   - Supports multicast for efficient data dissemination from exchanges.
+  - Processes real-time market data feeds (e.g., stock prices) via UDP multicast and generates buy/sell orders based on predefined logic.
+  - Minimizes latency to execute trades before market conditions change, critical for profitability in HFT.
+  - Supports multicast for efficient data dissemination from exchanges.
 
 2. **Real-Time Applications**:
-   - Suitable for gaming servers, IoT systems, or real-time analytics where low-latency packet processing is essential.
-   - Extensible for custom application logic beyond trading.
+  - Suitable for gaming servers, IoT systems, or real-time analytics where low-latency packet processing is essential.
+  - Extensible for custom application logic beyond trading.
 
 3. **Network Performance Testing**:
-   - Includes tools (`packet_generator`) and test scripts (`test_latency.py`, `test_functional.py`) to benchmark latency and verify functionality.
+  - Includes tools (`packet_generator`) and test scripts (`test_latency.py`, `test_functional.py`) to benchmark latency and verify functionality.
 
 4. **Research and Development**:
-   - Provides a framework for experimenting with kernel-level networking optimizations, such as custom packet processing or buffer management.
+  - Provides a framework for experimenting with kernel-level networking optimizations, such as custom packet processing or buffer management.
 
 ## Project Structure
 
 ```
-nano-net/
+NanoNet-ULL/
 ├── src/                        # Kernel module source files
 │   ├── nanonet.c               # Main kernel module logic
 │   ├── micro_stack.c           # Packet parsing and checksum computation
@@ -66,8 +65,6 @@ nano-net/
 ├── Makefile                    # Build configuration
 └── README.md                   # Project overview
 ```
-
-**Note**: The project assumes `ull_net` and related files are renamed to `nanonet` (e.g., `ull_net.c` → `nanonet.c`, `ullnet_control.c` → `nanonet_control.c`, `ullnet.conf` → `nanonet.conf`) to reflect the new name. Update source code references accordingly if not renamed.
 
 ## Prerequisites
 
@@ -389,4 +386,3 @@ GNU General Public License (GPL) v2. See `src/nanonet.c` for details.
 ## Author
 
 Nikhil Singh
-```

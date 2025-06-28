@@ -1,0 +1,18 @@
+NanoNet Module Status:
+Enabled: Yes
+Target IP: 192.168.1.100
+Target Port: 8080
+Protocol: UDP
+Multicast: Yes
+Multicast Group: 239.1.1.1
+
+Statistics:
+Packets Processed: 1000
+Packets Bypassed: 0
+Responses Sent: 1000
+Errors: 0
+Active Connections: 0
+Dropped Connections: 0
+Min Process Time: 1500 ns
+Max Process Time: 3000 ns
+Avg Process Time: 2200 ns

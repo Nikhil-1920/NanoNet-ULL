@@ -90,7 +90,7 @@ sudo yum install -y kernel-devel-$(uname -r) python3 ethtool
 
 1. **Navigate to the Project Directory**:
    ```bash
-   cd nano-net
+   cd NanoNet-ULL
    ```
 
 2. **Build the Kernel Module and Tools**:

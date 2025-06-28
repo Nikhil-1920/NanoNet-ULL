@@ -127,7 +127,7 @@ sudo yum install -y kernel-devel-$(uname -r) python3 ethtool
 
 This loads `nanonet.ko` and sets permissions for `/dev/nanonet`.
 
-**Expected Install Output** (in kernel logs, view via `dmesg`):
+**Install Output** (in kernel logs, view via `dmesg`):
 ```
 [ 1234.567890] NANONET: Initializing ultra-low latency networking module
 [ 1234.567900] NANONET: Control interface initialized
@@ -157,7 +157,7 @@ Apply the configuration:
 ./tools/nanonet_control config 192.168.1.100 8080 udp multicast 239.1.1.1
 ```
 
-**Expected Output**:
+**Output**:
 ```
 Configuration updated
 ```
@@ -167,7 +167,7 @@ Enable the module:
 ./tools/nanonet_control enable
 ```
 
-**Expected Output**:
+**Output**:
 ```
 Module enabled
 ```
@@ -178,7 +178,7 @@ Simulate market data:
 ./tools/packet_generator 192.168.1.100 8080 udp multicast 239.1.1.1
 ```
 
-**Expected Behavior**:
+**Behavior**:
 - Sends 1000 UDP packets with:
   - Symbol: `AAPL    `
   - Price: `9999` cents (triggers buy order)
@@ -196,7 +196,7 @@ Simulate market data:
 python3 tests/test_latency.py --ip 192.168.1.100 --port 8080 --protocol udp --multicast 239.1.1.1
 ```
 
-**Expected Output** (example):
+**Output** (example):
 ```
 Running latency test: 1000 packets to 192.168.1.100:8080 (udp)
 Multicast group: 239.1.1.1
@@ -222,11 +222,11 @@ Jitter: 4,444 ns (4.44 μs)
 python3 tests/test_functional.py --ip 192.168.1.100 --port 8080 --protocol udp --multicast 239.1.1.1
 ```
 
-**Expected Output**:
+**Output**:
 ```
 Running functional test: 192.168.1.100:8080 (udp)
 Multicast group: 239.1.1.1
-Received order: symbol=AAPL    , price=10000, quantity=100, side=buy
+Received order: symbol=AAPL, price=10000, quantity=100, side=buy
 ```
 
 ### Step 5: Monitor Statistics
@@ -235,7 +235,7 @@ View status:
 ./tools/nanonet_control status
 ```
 
-**Expected Output** (example):
+**Output** (example):
 ```
 NanoNet Status:
 Enabled: Yes
@@ -262,7 +262,7 @@ View debug statistics:
 cat /sys/kernel/debug/nanonet/stats
 ```
 
-**Expected Output**:
+**Output**:
 ```
 NanoNet Debug Statistics
 ========================
@@ -280,7 +280,7 @@ echo 1 > /sys/kernel/debug/tracing/events/nanonet/ull_packet_processed/enable
 cat /sys/kernel/debug/tracing/trace
 ```
 
-**Expected Output** (example):
+**Output** (example):
 ```
 # tracer: nop
 # entries-in-buffer/entries-written: 1000/1000   #P:4
@@ -299,7 +299,7 @@ View logs:
 cat logs/stats.log
 ```
 
-**Expected Output** (example):
+**Output** (example):
 ```
 NanoNet Status:
 Enabled: Yes
@@ -322,7 +322,7 @@ Multicast Group: 239.1.1.1
 ./scripts/clean.sh
 ```
 
-**Expected Undeploy Output** (in kernel logs):
+**Undeploy Output** (in kernel logs):
 ```
 [ 1234.678900] NANONET: Unloading module
 [ 1234.678910] NANONET: Control interface cleaned up
@@ -378,10 +378,6 @@ NanoNet’s impact extends beyond HFT:
 - Enhance trading logic in `packet_processor.c`.
 - Implement multi-core packet processing.
 - Add a web-based monitoring dashboard.
-
-## License
-
-GNU General Public License (GPL) v2. See `src/nanonet.c` for details.
 
 ## Author
 
